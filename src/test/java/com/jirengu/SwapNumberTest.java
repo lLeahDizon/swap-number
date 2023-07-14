@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BasicOperatorTest {
+public class SwapNumberTest {
     PrintStream originalOut;
     ByteArrayOutputStream outputStream;
 
@@ -27,13 +27,18 @@ public class BasicOperatorTest {
     }
 
     @Test
-    public void testBasicOperator() {
+    public void testSwap() {
         // Act
-        BasicOperator.main(null);
+        SwapNumber.main(null);
 
         // Assert
-        String output = outputStream.toString().trim();
-        assertEquals(96, Integer.parseInt(output));
+        String output = outputStream.toString();
+        String expectedOutput =
+            String.format("num 1 after swapping: %d\n"
+                + "num 2 after swapping: %d\n",
+                SwapNumber.number2, SwapNumber.number1);
+        assertEquals(expectedOutput, output);
+        // assertEquals(nu)
     }
 
 }
